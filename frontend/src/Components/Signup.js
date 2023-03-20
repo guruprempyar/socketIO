@@ -17,8 +17,8 @@ function Signup() {
   const [pic, setPic] = useState("");
 
   return (
-    <VStack spacing="5px">
-      <FormControl isRequired>
+    <VStack spacing="5px" bg="red.50">
+      <FormControl p="4" isRequired>
         <FormLabel>Name</FormLabel>
         <Input
           placeholder="Full name"
@@ -26,7 +26,7 @@ function Signup() {
         />
       </FormControl>
 
-      <FormControl isRequired>
+      <FormControl p="4" isRequired>
         <FormLabel>Email</FormLabel>
         <Input
           placeholder="Full Email"
@@ -34,7 +34,7 @@ function Signup() {
         />
       </FormControl>
 
-      <FormControl isRequired>
+      <FormControl p="4" isRequired>
         <FormLabel>Password</FormLabel>
         <Input
           type={"password"}
@@ -43,7 +43,7 @@ function Signup() {
         />
       </FormControl>
 
-      <FormControl isRequired>
+      <FormControl p="4" isRequired>
         <FormLabel>Confirm Password</FormLabel>
         <Input
           type={"password"}
@@ -52,16 +52,18 @@ function Signup() {
         />
       </FormControl>
 
-      <FormControl>
+      <FormControl p="4">
         <FormLabel>Profile Pic</FormLabel>
         <Input type={"file"} placeholder="Profile Pic" />
       </FormControl>
 
-      <Button
-        colorScheme="green" //onClick={submitHandler}
-      >
-        Sign up
-      </Button>
+      <FormControl isRequired pb="4">
+        <Button
+          colorScheme="green" //onClick={submitHandler}
+        >
+          Sign up
+        </Button>
+      </FormControl>
     </VStack>
   );
 }
