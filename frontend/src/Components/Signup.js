@@ -7,14 +7,78 @@ import {
   Input,
   VStack,
   Button,
+  useToast,
 } from "@chakra-ui/react";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
 function Signup() {
+  const toast = useToast();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [pic, setPic] = useState("");
+
+  const submitHandler = async () => {
+    setLoading(true);
+    if (
+      !name ||
+      !email ||
+      !password ||
+      !confirmpassword ||
+      password !== confirmpassword
+    ) {
+      toast({
+        title: "Please fill the required form.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const config = {
+        headers: {
+          "content-type": "application/json",
+        },
+      };
+
+      const userData = await axios.post(
+        "api/user/",
+        {
+          name,
+          email,
+          password,
+          pic,
+        },
+        config
+      );
+      toast({
+        title: "Account created",
+        description: "The new account created.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      localStorage.setItem("userinfo", JSON.stringify(userData));
+      navigate("/chat");
+      setLoading(false);
+    } catch (err) {
+      console.log("err msg:", err.response);
+      toast({
+        title: err.response.data.message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+      setLoading(false);
+    }
+  };
 
   return (
     <VStack spacing="5px" bg="red.50">
@@ -58,9 +122,7 @@ function Signup() {
       </FormControl>
 
       <FormControl isRequired pb="4">
-        <Button
-          colorScheme="green" //onClick={submitHandler}
-        >
+        <Button isLoading={loading} colorScheme="green" onClick={submitHandler}>
           Sign up
         </Button>
       </FormControl>
