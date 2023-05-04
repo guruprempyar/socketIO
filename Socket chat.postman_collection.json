@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "3ce17f86-f4f4-4ed4-8cf9-4b3e161e30ec",
+		"name": "Socket chat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Add chat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWIwM2JlOTY5ZTgwZDkyOTI0MDFlNSIsImlhdCI6MTY4MzE5OTQ1OSwiZXhwIjoxNjg1NzkxNDU5fQ.Yn0TfQuMv0Snb3JrutKaKUBjB9ThdR1DzkqKaWCBBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"64201feef3b779a399bb2c9d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/chat/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"chat",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User chat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWIwM2JlOTY5ZTgwZDkyOTI0MDFlNSIsImlhdCI6MTY4MzE5OTQ1OSwiZXhwIjoxNjg1NzkxNDU5fQ.Yn0TfQuMv0Snb3JrutKaKUBjB9ThdR1DzkqKaWCBBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/chat/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"chat",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Group Chat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWIwM2JlOTY5ZTgwZDkyOTI0MDFlNSIsImlhdCI6MTY4MzE5OTQ1OSwiZXhwIjoxNjg1NzkxNDU5fQ.Yn0TfQuMv0Snb3JrutKaKUBjB9ThdR1DzkqKaWCBBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"group chat\",\r\n    \"users\": \"[\\\"64201feef3b779a399bb2c9d\\\",\\\"6453aaa1e40f3e61b0077616\\\"]\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/chat/group/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"chat",
+								"group",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Group chat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWIwM2JlOTY5ZTgwZDkyOTI0MDFlNSIsImlhdCI6MTY4MzE5OTQ1OSwiZXhwIjoxNjg1NzkxNDU5fQ.Yn0TfQuMv0Snb3JrutKaKUBjB9ThdR1DzkqKaWCBBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"chatId\": \"6453ab01e40f3e61b007761b\",\r\n    \"chatName\": \"New Group chat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/chat/rename/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"chat",
+								"rename",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User added to group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWIwM2JlOTY5ZTgwZDkyOTI0MDFlNSIsImlhdCI6MTY4MzE5OTQ1OSwiZXhwIjoxNjg1NzkxNDU5fQ.Yn0TfQuMv0Snb3JrutKaKUBjB9ThdR1DzkqKaWCBBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"chatId\": \"6453ab01e40f3e61b007761b\", \"userId\":\"6453b0e6840cab70e8e81368\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/chat/groupadd/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"chat",
+								"groupadd",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User remove to group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWIwM2JlOTY5ZTgwZDkyOTI0MDFlNSIsImlhdCI6MTY4MzE5OTQ1OSwiZXhwIjoxNjg1NzkxNDU5fQ.Yn0TfQuMv0Snb3JrutKaKUBjB9ThdR1DzkqKaWCBBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"chatId\": \"6453ab01e40f3e61b007761b\", \"userId\":\"6453b0e6840cab70e8e81368\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/chat/groupremove/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"chat",
+								"groupremove",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"guru@netqom.com\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"guru\",\r\n    \"email\": \"guru@netqom.com\",\r\n    \"password\": \"12345\",\r\n    \"pic\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWIwM2JlOTY5ZTgwZDkyOTI0MDFlNSIsImlhdCI6MTY4MzE5OTQ1OSwiZXhwIjoxNjg1NzkxNDU5fQ.Yn0TfQuMv0Snb3JrutKaKUBjB9ThdR1DzkqKaWCBBQU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
