@@ -66,7 +66,7 @@ function Signup() {
         isClosable: true,
       });
       localStorage.setItem("userinfo", JSON.stringify(userData));
-      navigate("/chat");
+      navigate("/chats");
       setLoading(false);
     } catch (err) {
       console.log("err msg:", err.response);

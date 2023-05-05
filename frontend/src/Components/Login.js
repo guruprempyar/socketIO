@@ -53,8 +53,8 @@ function Login() {
         duration: 9000,
         isClosable: true,
       });
-      localStorage.setItem("userinfo", JSON.stringify(userData));
-      navigate("/chat");
+      localStorage.setItem("userinfo", JSON.stringify(userData.data));
+      navigate("/chats");
       setLoading(false);
     } catch (err) {
       console.log("err msg:", err.response);
