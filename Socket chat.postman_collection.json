@@ -240,8 +240,62 @@
 			]
 		},
 		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "Send Message",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWIwM2JlOTY5ZTgwZDkyOTI0MDFlNSIsImlhdCI6MTY4MzE5OTQ1OSwiZXhwIjoxNjg1NzkxNDU5fQ.Yn0TfQuMv0Snb3JrutKaKUBjB9ThdR1DzkqKaWCBBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"chatId\": \"64539a1ac8e5f8473f520aca\",\r\n    \"message\": \"here\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/message/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"message",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Auth Login",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWIwM2JlOTY5ZTgwZDkyOTI0MDFlNSIsImlhdCI6MTY4MzE5OTQ1OSwiZXhwIjoxNjg1NzkxNDU5fQ.Yn0TfQuMv0Snb3JrutKaKUBjB9ThdR1DzkqKaWCBBQU",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -275,7 +329,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"guru\",\r\n    \"email\": \"guru@netqom.com\",\r\n    \"password\": \"12345\",\r\n    \"pic\": \"\"\r\n}",
+					"raw": "{\r\n    \"name\": \"guru prem pyar\",\r\n    \"email\": \"guru1234@netqom.com\",\r\n    \"password\": \"12345\",\r\n    \"pic\": \"\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
