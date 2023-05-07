@@ -37,4 +37,14 @@ const addMessage = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { addMessage };
+const getAllMessage = asyncHandler(async (req, res) => {
+  try {
+    var allMessage = await Message.find({ chat: req.params.chatId }).populate("sender", "name pic email").populate("chat");
+    res.status(200).json(allMessage);
+  } catch (error) {
+    res.status(402);
+    throw new Error(error.message);
+  }
+});
+
+module.exports = { addMessage, getAllMessage };
