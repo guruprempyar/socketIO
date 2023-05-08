@@ -30,7 +30,7 @@ const addMessage = asyncHandler(async (req, res) => {
       latestMessage: newMsg,
     });
 
-    res.status(200).json(newMsg);
+    res.status(200).json(newMsg1);
   } catch (error) {
     res.status(402);
     throw new Error(error.message);
@@ -39,7 +39,9 @@ const addMessage = asyncHandler(async (req, res) => {
 
 const getAllMessage = asyncHandler(async (req, res) => {
   try {
-    var allMessage = await Message.find({ chat: req.params.chatId }).populate("sender", "name pic email").populate("chat");
+    var allMessage = await Message.find({ chat: req.params.chatId })
+      .populate("sender", "name pic email")
+      .populate("chat");
     res.status(200).json(allMessage);
   } catch (error) {
     res.status(402);
