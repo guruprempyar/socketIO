@@ -14,6 +14,9 @@ import axios from "axios";
 import ScrollableChat from "./userAvatar/ScrollableChat";
 import io from "socket.io-client";
 
+import Lottie from "lottie-react";
+import typingIcon from "../animation/typing.json";
+
 const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
 
@@ -23,6 +26,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [newMessage, setNewMessage] = useState("");
   const { user, selectedChat, setSelectedChat } = ChatState();
   const [socketConnected, setSocketConnected] = useState(false);
+  const [typing, setTyping] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
 
   const toast = useToast();
 
@@ -32,6 +37,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
     socket.on("connected", () => {
       setSocketConnected(true);
+    });
+
+    socket.on("typing", () => {
+      setIsTyping(true);
+    });
+
+    socket.on("stop typing", () => {
+      setIsTyping(false);
     });
   }, []);
 
@@ -87,6 +100,26 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
+
+    if (!socketConnected) return;
+
+    if (!typing) {
+      setTyping(true);
+
+      socket.emit("typing", selectedChat._id);
+    }
+    console.log("typing", typing);
+    var lastTypingTime = new Date().getTime();
+    var timeLength = 2900;
+    setTimeout(() => {
+      var timeNow = new Date().getTime();
+      var timeDiff = timeNow - lastTypingTime;
+      console.log("here", timeNow, lastTypingTime, typing);
+      if (timeDiff >= timeLength && typing) {
+        socket.emit("stop typing", selectedChat._id);
+        setTyping(false);
+      }
+    }, timeLength);
   };
   const sendMessage = async (event) => {
     if (event.key === "Enter") {
@@ -108,6 +141,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         );
 
         setMessages([...messages, data]);
+        // debugger;
         socket.emit("new message", data);
       } catch (error) {
         toast({
@@ -174,6 +208,23 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             )}
 
             <FormControl onKeyDown={sendMessage} isRequired mt={3}>
+              {isTyping ? (
+                <div
+                  style={{
+                    width: "100px",
+                    marginLeft: "50%",
+                  }}
+                >
+                  <Lottie
+                    animationData={typingIcon}
+                    loop={true} // height={50}
+                    width={70}
+                    style={{ marginBottom: 15, marginLeft: 0 }}
+                  />
+                </div>
+              ) : (
+                <></>
+              )}
               <Input
                 variant="filled"
                 bg="#e0e0e0"
