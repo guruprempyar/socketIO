@@ -16,6 +16,8 @@ import {
   DrawerContent,
   useDisclosure,
   Input,
+  Flex,
+  Spacer,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
@@ -111,7 +113,7 @@ const SideDrawer = () => {
 
   return (
     <>
-      <Box
+      <Flex
         d="flex"
         justifyContent="space-between"
         alignItems="center"
@@ -120,18 +122,22 @@ const SideDrawer = () => {
         p="5px 10px 5px 10px"
         borderWidth="5px"
       >
-        <Tooltip label="Search User to chat" hasArrow placement="bottom-end">
-          <Button variant="ghost" onClick={onOpen}>
-            <i class="fa fa-search"></i>
-            <Text d={{ base: "none", md: "flex" }} px="4">
-              Search User
-            </Text>
-          </Button>
-        </Tooltip>
-        <Text fontSize="2xl" fontFamily="Work sans">
-          Talk-A-Tive
-        </Text>
-        <div>
+        <Box>
+          <Tooltip label="Search User to chat" hasArrow placement="bottom-end">
+            <Button variant="ghost" onClick={onOpen}>
+              <i class="fa fa-search"></i>
+              <Text d={{ base: "none", md: "flex" }} px="4">
+                Search User
+              </Text>
+            </Button>
+          </Tooltip>
+        </Box>
+        <Box>
+          <Text fontSize="2xl" fontFamily="Work sans">
+            Talk-A-Tive
+          </Text>
+        </Box>
+        <Box>
           <Menu>
             <MenuButton p={1}>
               <BellIcon />
@@ -154,8 +160,8 @@ const SideDrawer = () => {
               <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </MenuList>
           </Menu>
-        </div>
-      </Box>
+        </Box>
+      </Flex>
 
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />

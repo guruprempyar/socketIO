@@ -167,6 +167,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             w="100%"
             fontFamily="Work sans"
             d="flex"
+            h="10%"
             justifyContent={{ base: "space-between" }}
             alignItems="center"
           >
@@ -189,9 +190,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             p={3}
             bg="#e8e8e8"
             w="100%"
-            h="100%"
+            h="90%"
             borderRadius="lg"
-            overflowY="hidden"
           >
             {loading ? (
               <Spinner

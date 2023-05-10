@@ -13,7 +13,7 @@ const ScrollableChat = ({ message }) => {
   const { user } = ChatState();
 
   return (
-    <ScrollableFeed>
+    <ScrollableFeed forceScroll="true" style={{ height: "90%" }}>
       {message &&
         message.map((m, i) => {
           return (
